@@ -1972,7 +1972,7 @@ function addInboundAccount($server_id, $client_id, $inbound_id, $expiryTime, $re
                 $file_detail = $stmt->get_result()->fetch_assoc();
                 $stmt->close();
             
-                $flow = $file_detail['flow'] == "None"?"":$file_detail['flow'];
+                $flow = isset($file_detail['flow']) && $file_detail['flow'] != "None" ? $file_detail['flow'] : "";
                 
                 $newClient = [
                     "$id_label" => $client_id,
@@ -1994,7 +1994,7 @@ function addInboundAccount($server_id, $client_id, $inbound_id, $expiryTime, $re
     	}else{
             $newClient = [
                 "$id_label" => $client_id,
-                "flow" => "xtls-rprx-direct",
+                "flow" => "",
                 "email" => $remark,
                 "limitIp" => $limitip,
                 "totalGB" => $volume,
@@ -2411,7 +2411,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                 if($header_type == 'http') $psting .= "&path=/&host=$host";
                 if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http';
                 if(strlen($sni) > 1) $psting .= "&sni=$sni";
-                if($tlsStatus != 'none') $psting .= "&security=tls&flow=xtls-rprx-direct";
+                if($tlsStatus != 'none') $psting .= "&security=tls&flow=";
                 if($netType == 'grpc') $psting = "&serviceName=$serviceName";
     
                 $outputlink = "$protocol://$uniqid@$server_ip:$port{$psting}#$remark";
@@ -2522,7 +2522,7 @@ function editInbound($server_id, $uniqid, $remark, $protocol, $netType = 'tcp', 
         	  "clients": [
         		{
         		  "id": "'.$uniqid.'",
-        		  "flow": "xtls-rprx-direct"
+        		  "flow": ""
         		}
         	  ],
         	  "decryption": "none",
@@ -2587,7 +2587,7 @@ function editInbound($server_id, $uniqid, $remark, $protocol, $netType = 'tcp', 
 		  "clients": [
 			{
 			  "password": "'.$uniqid.'",
-			  "flow": "xtls-rprx-direct"
+			  "flow": ""
 			}
 		  ],
 		  "fallbacks": []
@@ -2628,7 +2628,7 @@ function editInbound($server_id, $uniqid, $remark, $protocol, $netType = 'tcp', 
         	  "clients": [
         		{
         		  "id": "'.$client_id.'",
-        		  "flow": "xtls-rprx-direct"
+        		  "flow": ""
         		}
         	  ],
         	  "decryption": "none",
@@ -2720,7 +2720,7 @@ function editInbound($server_id, $uniqid, $remark, $protocol, $netType = 'tcp', 
                   "clients": [
                     {
                       "id": "'.$uniqid.'",
-        			  "flow": "xtls-rprx-direct"
+        			  "flow": ""
                     }
                   ],
                   "decryption": "none",
@@ -2763,7 +2763,7 @@ function editInbound($server_id, $uniqid, $remark, $protocol, $netType = 'tcp', 
             	  "clients": [
             		{
             		  "id": "'.$uniqid.'",
-            		  "flow": "xtls-rprx-direct"
+            		  "flow": ""
             		}
             	  ],
             	  "decryption": "none",
@@ -3013,7 +3013,7 @@ function addUser($server_id, $client_id, $protocol, $port, $expiryTime, $remark,
     	  "clients": [
     		{
     		  "id": "'.$client_id.'",
-    		  "flow": "xtls-rprx-direct"
+    		  "flow": ""
     		}
     	  ],
     	  "decryption": "none",
@@ -3079,7 +3079,7 @@ function addUser($server_id, $client_id, $protocol, $port, $expiryTime, $remark,
 		  "clients": [
 			{
 			  "password": "'.$client_id.'",
-			  "flow": "xtls-rprx-direct"
+			  "flow": ""
 			}
 		  ],
 		  "fallbacks": []
@@ -3126,7 +3126,7 @@ function addUser($server_id, $client_id, $protocol, $port, $expiryTime, $remark,
         	  "clients": [
         		{
         		  "id": "'.$client_id.'",
-        		  "flow": "xtls-rprx-direct"
+        		  "flow": ""
         		}
         	  ],
         	  "decryption": "none",
@@ -3239,7 +3239,7 @@ function addUser($server_id, $client_id, $protocol, $port, $expiryTime, $remark,
         	  "clients": [
         		{
         		  "id": "'.$client_id.'",
-        		  "flow": "xtls-rprx-direct"
+        		  "flow": ""
         		}
         	  ],
         	  "decryption": "none",
@@ -3266,7 +3266,7 @@ function addUser($server_id, $client_id, $protocol, $port, $expiryTime, $remark,
     "www.yahoo.com"
 ]';
                     $spiderX = !empty($file_detail['spiderX'])?$file_detail['spiderX']:"";
-                    $flow = $file_detail['flow'] == "None"?"":$file_detail['flow'];
+                    $flow = isset($file_detail['flow']) && $file_detail['flow'] != "None" ? $file_detail['flow'] : "";
                     
 
 		            $netType = "tcp";
@@ -3338,7 +3338,7 @@ function addUser($server_id, $client_id, $protocol, $port, $expiryTime, $remark,
 			  "clients": [
 				{
 				  "id": "'.$client_id.'",
-				  "flow": "xtls-rprx-direct"
+				  "flow": ""
 				}
 			  ],
 			  "decryption": "none",
