@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Written By: wizwiz
 
 if [ "$(id -u)" -ne 0 ]; then
     echo -e "\033[33mPlease run as root\033[0m"
@@ -102,7 +101,7 @@ sudo systemctl restart apache2.service
 
 wait
 
-git clone https://github.com/wizwizdev/wizwizxui-timebot.git /var/www/html/wizwizxui-timebot
+git clone https://github.com/HellthonAriya/wizwizxui-timebot-king.git /var/www/html/wizwizxui-timebot
 sudo chown -R www-data:www-data /var/www/html/wizwizxui-timebot/
 sudo chmod -R 755 /var/www/html/wizwizxui-timebot/
 echo -e "\n\033[33mWizWiz config and script have been installed successfully\033[0m"
@@ -124,7 +123,7 @@ fi
  destination_dir=$(find /var/www/html -type d -name "*wizpanel*" | head -n 1)
 
  cd /var/www/html/
- wget -O wizwizpanel.zip https://github.com/wizwizdev/wizwizxui-timebot/releases/download/7.5.3/wizwizpanel.zip
+ wget -O wizwizpanel.zip https://github.com/HellthonAriya/wizwizxui-timebot-king/releases/download/7.5.3/wizwizpanel.zip
 
  file_to_transfer="/var/www/html/wizwizpanel.zip"
  destination_dir=$(find /var/www/html -type d -name "*wizpanel*" | head -n 1)
