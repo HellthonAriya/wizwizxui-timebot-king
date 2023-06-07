@@ -1978,7 +1978,7 @@ function addInboundAccount($server_id, $client_id, $inbound_id, $expiryTime, $re
                     "$id_label" => $client_id,
                     "email" => $remark,
                     "limitIp" => $limitip,
-                    "flow" => "' . $flow .'",
+                    "flow" => $flow,
                     "totalGB" => $volume,
                     "expiryTime" => $expiryTime
                 ];
