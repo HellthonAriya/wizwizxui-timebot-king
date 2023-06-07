@@ -1128,10 +1128,7 @@ if(preg_match('/^createAccAmount(\d+)_(\d+)_(\d+)/',$userInfo['step'], $match) &
     
         🔮 $remark \n <code>$vray_link</code>
             ";
-            if($botState['subLinkState'] == "on") $acc_text .= 
-            " \n🌐 subscription : <code>$subLink</code>
-	    
-	    پیشنهاد ما استفاده از سابسکریپشن هست و لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
+            if($botState['subLinkState'] == "on") $acc_text .= "لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
 @kingvpnamuzesh
 همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
         
@@ -1405,20 +1402,20 @@ $subLink = $botUrl . "settings/subLink.php?token=" . $token;
 
 $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar);
 foreach($vraylink as $vray_link){
-$acc_text = "
-
+    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
+    $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-⁮⁮ ⁮⁮
+    ⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
+}
+
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-🌐 subscription : <code>$subLink</code>
-
-پیشنهاد ما استفاده از سابسکریپشن هست و لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
+لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
 @kingvpnamuzesh
 همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
       
@@ -2361,19 +2358,19 @@ if(preg_match('/payCustomWithWallet(.*)/',$data, $match)){
     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar);
     delMessage();
     foreach($vraylink as $vray_link){
-        $acc_text = "
+    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
+    $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-⁮⁮ ⁮⁮
+    ⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
+}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-🌐 subscription : <code>$subLink</code>
-
-پیشنهاد ما استفاده از سابسکریپشن هست و لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
+لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
 @kingvpnamuzesh
 همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)"; 
     
@@ -2692,19 +2689,19 @@ if(preg_match('/accCustom(.*)/',$data, $match) and $text != $cancelText){
 
     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id);
     foreach($vraylink as $vray_link){
-        $acc_text = "
+    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
+    $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
-⏰ مدت سرویس: $day روز
-⁮⁮ ⁮⁮
+⏰ مدت سرویس: $days روز
+    ⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
+}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-\n🌐 subscription : <code>$subLink</code>
-
-پیشنهاد ما استفاده از سابسکریپشن هست و لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
+لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
 @kingvpnamuzesh
 همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
     
@@ -2935,19 +2932,19 @@ if(preg_match('/payWithWallet(.*)/',$data, $match)){
 
     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar);
     foreach($vraylink as $vray_link){
-        $acc_text = "
+    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
+    $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-⁮⁮ ⁮⁮
+    ⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
+}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-\n🌐 subscription : <code>$subLink</code>
-
-پیشنهاد ما استفاده از سابسکریپشن هست و لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
+لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
 @kingvpnamuzesh
 همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
     
@@ -3339,19 +3336,19 @@ if(preg_match('/accept(.*)/',$data, $match) and $text != $cancelText){
     include 'phpqrcode/qrlib.php';
     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar);
     foreach($vraylink as $vray_link){
-        $acc_text = "
+    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
+    $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-⁮⁮ ⁮⁮
+    ⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
+}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-\n🌐 subscription : <code>$subLink</code>
-
-پیشنهاد ما استفاده از سابسکریپشن هست و لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
+لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
 @kingvpnamuzesh
 همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
     
@@ -4678,19 +4675,19 @@ if(preg_match('/freeTrial(\d+)/',$data,$match)) {
     $token = RandomString(30);
     $subLink = $botUrl . "settings/subLink.php?token=" . $token;
     foreach($vraylink as $vray_link){
-        $acc_text = "
+    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
+    $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-⁮⁮ ⁮⁮
+    ⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
+}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-\n🌐 subscription : <code>$subLink</code>
-
-پیشنهاد ما استفاده از سابسکریپشن هست و لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
+لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
 @kingvpnamuzesh
 همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
     
