@@ -16,6 +16,8 @@ if ($joniedState== "kicked" || $joniedState== "left"){
 🆔 $channelLock
 
 ✅ بعد از اینکه عضو شدید مجدد ربات رو /start کنید و لذت ببرید
+
+🌀 @ ( Support us 💕 )
 ", null,"HTML");
     exit;
 }
@@ -24,7 +26,7 @@ if($robotState == "off" && $from_id != $admin){
     exit();
 }
 if(strpos($text, "/start ") !== false){
-    $inviter = str_replace("/start ", null, $text);
+    $inviter = str_replace("/start ", "", $text);
     
     if($uinfo->num_rows == 0 && $inviter != $from_id){
         
@@ -102,22 +104,26 @@ if (preg_match('/^\/([Ss]tart)/', $text) or $text == '⤵️ برگرد به م�
         $stmt->close();
     }
     if(isset($data) and $data == "mainMenu"){
-        $res = editText($message_id, 'سلام به ربات سرویس کاهش پینگ آروان خوش اومدی 🕯🔮
+        $res = editText($message_id, 'سلااام به ربات ویزویز خوش اومدی 🫡🌸
 
-🧪کیفیت اتصال بسیار بالا
-🧬کاملا امن و مطمئن
-⚔️پشتیبانی 24/7 تا لحظه آخر اشتراک
+ما اینجاییم تا شما را بدون هیچ محدویتی به شبکه جهانی متصل کنیم ❤️
 
-🛎 /start
+✅ کیفیت در ساخت انواع کانکشن ها
+📡 برقرای امنیت در ارتباط شما
+☎️ پشتیبانی تا روز آخر 
+
+🚪 /start
 ', $mainKeys);
         if(!$res->ok){
-            sendMessage('سلام به ربات سرویس کاهش پینگ آروان خوش اومدی 🕯🔮
+            sendMessage('سلااام به ربات ویزویز خوش اومدی 🫡🌸
 
-🧪کیفیت اتصال بسیار بالا
-🧬کاملا امن و مطمئن
-⚔️پشتیبانی 24/7 تا لحظه آخر اشتراک
+ما اینجاییم تا شما را بدون هیچ محدویتی به شبکه جهانی متصل کنیم ❤️
 
-🛎 /start
+✅ کیفیت در ساخت انواع کانکشن ها
+📡 برقرای امنیت در ارتباط شما
+☎️ پشتیبانی تا روز آخر 
+
+🚪 /start
 ', $mainKeys);
         }
     }else{
@@ -138,13 +144,15 @@ if (preg_match('/^\/([Ss]tart)/', $text) or $text == '⤵️ برگرد به م�
             ",
             $keys, "html",$admin);
         }
-        sendMessage('سلام به ربات سرویس کاهش پینگ آروان خوش اومدی 🕯🔮
+        sendMessage('سلااام به ربات ویزویز خوش اومدی 🫡🌸
 
-🧪کیفیت اتصال بسیار بالا
-🧬کاملا امن و مطمئن
-⚔️پشتیبانی 24/7 تا لحظه آخر اشتراک
+ما اینجاییم تا شما را بدون هیچ محدویتی به شبکه جهانی متصل کنیم ❤️
 
-🛎 /start
+✅ کیفیت در ساخت انواع کانکشن ها
+📡 برقرای امنیت در ارتباط شما
+☎️ پشتیبانی تا روز آخر 
+
+🚪 /start
 ',$mainKeys);
     }
 }
@@ -192,7 +200,7 @@ if($userInfo['step'] == "addNewAdmin" && $from_id === $admin && $text != $cancel
         
         sendMessage("لیست ادمین ها",getAdminsKeys());
     }else{
-        sendMessage("😡 | فقط عدد بفرست!");
+        sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
     }
 }
 if(($data=="botSettings" or preg_match("/^changeBot(\w+)/",$data,$match)) && ($from_id == $admin || $userInfo['isAdmin'] == true)){
@@ -434,7 +442,7 @@ if($userInfo['step'] == "editInviteAmount"){
             ]]); 
         sendMessage("✅ تنظیمات بازاریابی",$keys);
         setUser();
-    }else sendMessage("😡 | فقط عدد بفرست!");
+    }else sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
 }
 if($userInfo['step'] == "editRewardTime" && ($from_id == $admin || $userInfo['isAdmin'] == true) && $text != $cancelText){
     if(!is_numeric($text)){
@@ -557,7 +565,7 @@ if($userInfo['step'] =="transferMyWallet" && $text != $cancelText){
                 sendMessage("لطفا مبلغ مورد نظر رو وارد کن");
             }else sendMessage("کاربری با این آیدی یافت نشد");
         }else sendMessage("میخای به خودت انتقال بدی ؟؟");
-    }else sendMessage("😡 | فقط عدد بفرست!");
+    }else sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
 }
 if(preg_match('/^tranfserUserAmount(\d+)/',$userInfo['step'],$match) && $text != $cancelText){
     if(is_numeric($text)){
@@ -577,7 +585,7 @@ if(preg_match('/^tranfserUserAmount(\d+)/',$userInfo['step'],$match) && $text !=
             sendMessage("✅|مبلغ " . number_format($text) . " تومان به کیف پول کاربر مورد نظر شما انتقال یافت",$removeKeyboard);
             sendMessage("لطفا یکی از کلید های زیر را انتخاب کنید",$mainKeys);
         }else sendMessage("موجودی حساب شما کم است");
-    }else sendMessage("😡 | فقط عدد بفرست!");
+    }else sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
 }
 if($data=="increaseMyWallet"){
     delMessage();
@@ -586,7 +594,7 @@ if($data=="increaseMyWallet"){
 }
 if($userInfo['step'] == "increaseMyWallet" && $text != $cancelText){
     if(!is_numeric($text)){
-        sendMessage("😡 | فقط عدد بفرست!");
+        sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
         exit();
     }
     elseif($text < 5000){
@@ -766,7 +774,7 @@ if($userInfo['step'] == "increaseUserWallet" && ($from_id == $admin || $userInfo
 🚪 /start',$mainKeys);
         }
     }else{
-        sendMessage("😡 | فقط عدد بفرست!");
+        sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
     }
 }
 if(preg_match('/^increaseWalletUser(\d+)/',$userInfo['step'], $match) && $text != $cancelText && ($from_id == $admin || $userInfo['isAdmin'] == true)){
@@ -783,7 +791,7 @@ if(preg_match('/^increaseWalletUser(\d+)/',$userInfo['step'], $match) && $text !
 🚪 /start',$mainKeys);
         setUser();
     }else{
-        sendMessage("😡 | فقط عدد بفرست!");
+        sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
     }
 }
 if($data=="editRewardChannel" && ($from_id == $admin || $userInfo['isAdmin'] == true)){
@@ -958,7 +966,7 @@ if(preg_match('/createAccCategory(\d+)_(\d+)/',$data,$match) && ($from_id == $ad
         $keyboard = array_chunk($keyboard,1);
         editText($message_id, "3️⃣ مرحله سه:
 
-یکی از پلن هارو انتخاب کن و برو برای پرداختش 💰 💳", json_encode(['inline_keyboard'=>$keyboard]));
+یکی از پلن هارو انتخاب کن و برو برای پرداختش 🤲 🕋", json_encode(['inline_keyboard'=>$keyboard]));
     }
 
 }
@@ -976,12 +984,12 @@ if(preg_match('/^createAccDate(\d+)/',$userInfo['step'],$match) && $text != $can
             sendMessage("عدد باید بیشتر از 0 باشه");
         }
     }else{
-        sendMessage('😡 | فقط عدد بفرست!');
+        sendMessage('😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟');
     }
 }
 if(preg_match('/^createAccVolume(\d+)_(\d+)/',$userInfo['step'],$match) && $text != $cancelText){
     if(!is_numeric($text)){
-        sendMessage("😡 | فقط عدد بفرست!");
+        sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
         exit();
     }elseif($text <=0){
         sendMessage("مقداری بزرگتر از 0 وارد کن");
@@ -995,7 +1003,7 @@ if(preg_match('/^createAccVolume(\d+)_(\d+)/',$userInfo['step'],$match) && $text
 }
 if(preg_match('/^createAccAmount(\d+)_(\d+)_(\d+)/',$userInfo['step'], $match) && $text != $cancelText){
     if(!is_numeric($text)){
-        sendMessage("😡 | فقط عدد بفرست!");
+        sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
         exit();
     }elseif($text <=0){
         sendMessage("مقداری بزرگتر از 0 وارد کن");
@@ -1128,9 +1136,8 @@ if(preg_match('/^createAccAmount(\d+)_(\d+)_(\d+)/',$userInfo['step'], $match) &
     
         🔮 $remark \n <code>$vray_link</code>
             ";
-            if($botState['subLinkState'] == "on") $acc_text .= "لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
-@kingvpnamuzesh
-همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
+            if($botState['subLinkState'] == "on") $acc_text .= 
+            " \n🌐 subscription : <code>$subLink</code>";
         
             $file = RandomString() .".png";
             QRcode::png($vray_link, $file, $ecc, $pixel_Size, $frame_Size);
@@ -1402,22 +1409,20 @@ $subLink = $botUrl . "settings/subLink.php?token=" . $token;
 
 $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar);
 foreach($vraylink as $vray_link){
-    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
-    $acc_text = "
+$acc_text = "
+
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-    ⁮⁮ ⁮⁮
+⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
-}
-
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
-@kingvpnamuzesh
-همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
+🌐 subscription : <code>$subLink</code>
+
+";
       
     $file = RandomString() .".png";
     $ecc = 'L';
@@ -1669,7 +1674,7 @@ if($data=="messageToSpeceficUser" && ($from_id == $admin || $userInfo['isAdmin']
 }
 if($userInfo['step'] == "messageToSpeceficUser" && $text != $cancelText && ($from_id == $admin || $userInfo['isAdmin'] == true)){
     if(!is_numeric($text)){
-        sendMessage("😡 | فقط عدد بفرست!");
+        sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
         exit();
     }
     $stmt = $connection->prepare("SELECT * FROM `users` WHERE `userid` = ?");
@@ -1792,7 +1797,7 @@ if(preg_match('/selectCategory(\d+)_(\d+)/',$data,$match) && ($botState['sellSta
         $keyboard = array_chunk($keyboard,1);
         editText($message_id, "3️⃣ مرحله سه:
 
-یکی از پلن هارو انتخاب کن و برو برای پرداختش 💰 💳", json_encode(['inline_keyboard'=>$keyboard]));
+یکی از پلن هارو انتخاب کن و برو برای پرداختش 🤲 🕋", json_encode(['inline_keyboard'=>$keyboard]));
     }
 
 }
@@ -2358,21 +2363,17 @@ if(preg_match('/payCustomWithWallet(.*)/',$data, $match)){
     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar);
     delMessage();
     foreach($vraylink as $vray_link){
-    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
-    $acc_text = "
+        $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-    ⁮⁮ ⁮⁮
+⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
-}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
-@kingvpnamuzesh
-همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)"; 
+🌐 subscription : <code>$subLink</code>"; 
     
         $file = RandomString() .".png";
         $ecc = 'L';
@@ -2689,21 +2690,17 @@ if(preg_match('/accCustom(.*)/',$data, $match) and $text != $cancelText){
 
     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id);
     foreach($vraylink as $vray_link){
-    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
-    $acc_text = "
+        $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
-⏰ مدت سرویس: $days روز
-    ⁮⁮ ⁮⁮
+⏰ مدت سرویس: $day روز
+⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
-}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
-@kingvpnamuzesh
-همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
+\n🌐 subscription : <code>$subLink</code>";
     
         $file = RandomString() .".png";
         $ecc = 'L';
@@ -2932,21 +2929,17 @@ if(preg_match('/payWithWallet(.*)/',$data, $match)){
 
     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar);
     foreach($vraylink as $vray_link){
-    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
-    $acc_text = "
+        $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-    ⁮⁮ ⁮⁮
+⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
-}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
-@kingvpnamuzesh
-همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
+\n🌐 subscription : <code>$subLink</code>";
     
         $file = RandomString() .".png";
         $ecc = 'L';
@@ -3336,21 +3329,17 @@ if(preg_match('/accept(.*)/',$data, $match) and $text != $cancelText){
     include 'phpqrcode/qrlib.php';
     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar);
     foreach($vraylink as $vray_link){
-    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
-    $acc_text = "
+        $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-    ⁮⁮ ⁮⁮
+⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
-}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
-@kingvpnamuzesh
-همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
+\n🌐 subscription : <code>$subLink</code>";
     
         $file = RandomString() .".png";
         $ecc = 'L';
@@ -4450,7 +4439,7 @@ if($userInfo['step'] == "banUser" && ($from_id == $admin || $userInfo['isAdmin']
 
 🚪 /start",$adminKeys);
     }else{
-        sendMessage("😡 | فقط عدد بفرست!");
+        sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
     }
 }
 if($data=="mainMenuButtons" && ($from_id == $admin || $userInfo['isAdmin'] == true)){
@@ -4519,7 +4508,7 @@ if($userInfo['step'] == "unbanUser" && ($from_id == $admin || $userInfo['isAdmin
 
 🚪 /start",$adminKeys);
     }else{
-        sendMessage("😡 | فقط عدد بفرست!");
+        sendMessage("😡 | مگه نمیگم فقط عدد بفرس نمیفهمی؟ یا خودتو زدی به نفهمی؟");
     }
 }
 if(preg_match("/^reply_(.*)/",$data,$match) and  ($from_id == $admin || $userInfo['isAdmin'] == true)){
@@ -4675,21 +4664,17 @@ if(preg_match('/freeTrial(\d+)/',$data,$match)) {
     $token = RandomString(30);
     $subLink = $botUrl . "settings/subLink.php?token=" . $token;
     foreach($vraylink as $vray_link){
-    $vray_link = str_replace("headerType=http", "headerType=http&host=khamenei.ir", $vray_link);
-    $acc_text = "
+        $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
-    ⁮⁮ ⁮⁮
+⁮⁮ ⁮⁮
 💝 config : <code>$vray_link</code>";
-}
 if($botState['subLinkState'] == "on") $acc_text .= "
 
-لطفا درهرصورت کامل طبق آموزش ما پیش برید و کامل مطالعه کنید
-@kingvpnamuzesh
-همچنین حتما حتما کانال اطلاعرسانی ما رو عضو باشید(لینک داخل چنل بالا)";
+\n🌐 subscription : <code>$subLink</code>";
     
         $file = RandomString().".png";
         $ecc = 'L';
@@ -5186,7 +5171,7 @@ if(preg_match('/(addNewRahgozarPlan|addNewPlan)/',$userInfo['step']) and $text!=
         sendMessage($msg);
     }
     if($step==55 and $text!=$cancelText){
-        if($text != "tcp" && $text != "ws" && $text != grpc){
+        if($text != "tcp" && $text != "ws" && $text != "grpc"){
             sendMessage("لطفا فقط نوع (ws | tcp | grpc) را وارد کنید");
             exit();
         }
@@ -7791,10 +7776,10 @@ if($data == 'reciveApplications') {
     $keyboard[] = ['text'=>"⤵️ برگرد صفحه قبلی ",'callback_data'=>"mainMenu"];
     $keyboard = array_chunk($keyboard,1);
     editText($message_id, "
-🔅شما میتوانید برنامه های پشتیبانی شده کانفیگ را ازین جا دریافت کنید
-❗️ولی برای سرویس ما از برنامه ها و ورژن های خاصی استفاده میشود که درصورت رعایت نکردن آنها از اتصال و کیفیت مناسب برخوردار نخواهید بود
-⚜️برنامه های پشتیبانی شده سرویس ما در آموزش کانال زیر:
-🔱 @kingvpnamuzesh
+🔸می توانید به راحتی همه فایل ها را (به صورت رایگان) دریافت کنید
+📌 شما میتوانید برای راهنمای اتصال به سرویس کانال رسمی مارا دنبال کنید و همچنین از دکمه های زیر میتوانید برنامه های مورد نیاز هر سیستم عامل را دانلود کنید
+
+✅ پیشنهاد ما برنامه V2rayng است زیرا کار با آن ساده است و برای تمام سیستم عامل ها قابل اجرا است، میتوانید به بخش سیستم عامل مورد نظر مراجعه کنید و لینک دانلود را دریافت کنید
 ", json_encode(['inline_keyboard'=>$keyboard]));
 }
 if ($text == $cancelText) {
