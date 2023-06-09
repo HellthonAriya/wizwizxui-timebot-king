@@ -2306,7 +2306,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                 
                 $psting = '';
                 if($header_type == 'http' && $tlsStatus != "reality" && $rahgozar != true) $psting .= "&path=/&host=$host"; else $psting .= '';
-                if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http';
+                if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http&host=khamenei.ir';
                 if(strlen($sni) > 1 && $tlsStatus != "reality") $psting .= "&sni=$sni";
                 if(strlen($serverName)>1 && $tlsStatus=="xtls") $server_ip = $serverName;
                 if($tlsStatus == "xtls" && $netType == "tcp") $psting .= "&flow=xtls-rprx-direct";
@@ -2326,7 +2326,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
             if($protocol == 'trojan'){
                 $psting = '';
                 if($header_type == 'http') $psting .= "&path=/&host=$host";
-                if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http';
+                if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http&host=khamenei.ir';
                 if(strlen($sni) > 1) $psting .= "&sni=$sni";
                 if($tlsStatus != 'none') $tlsStatus = 'tls';
                 $outputlink = "$protocol://$uniqid@$server_ip:$port?security=$tlsStatus{$psting}#$remark";
@@ -2388,7 +2388,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                 
                 if(strlen($sni) > 1 && $tlsStatus != "reality") $psting = "&sni=$sni"; else $psting = '';
                 if($netType == 'tcp'){
-                    if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http';
+                    if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http&host=khamenei.ir';
                     if($tlsStatus=="xtls") $psting .= "&flow=xtls-rprx-direct";
                     if($tlsStatus=="reality") $psting .= "&fp=$fp&pbk=$pbk&sni=$sni" . ($flow != ""?"&flow=$flow":"") . "&sid=$sid&spx=$spiderX";
                     else $psting .= "&path=/&host=$host";
@@ -2409,7 +2409,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
             }elseif($protocol == 'trojan'){
                 $psting = '';
                 if($header_type == 'http') $psting .= "&path=/&host=$host";
-                if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http';
+                if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http&host=khamenei.ir';
                 if(strlen($sni) > 1) $psting .= "&sni=$sni";
                 if($tlsStatus != 'none') $psting .= "&security=tls&flow=";
                 if($netType == 'grpc') $psting = "&serviceName=$serviceName";
